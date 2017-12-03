@@ -10,13 +10,48 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         @font-face {
             font-family: AAvanteBs; /* Имя шрифта */
             src: url({{asset('fonts/Avante-BS-Bold.ttf')}}); /* Путь к файлу со шрифтом */
+        }
+
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url({{asset('fonts/MaterialIcons-Regular.eot')}}); /* For IE6-8 */
+            src: local('Material Icons'),
+            local('MaterialIcons-Regular'),
+            url({{asset('fonts/MaterialIcons-Regular.woff2')}}) format('woff2'),
+            url({{asset('fonts/MaterialIcons-Regular.woff')}}) format('woff'),
+            url({{asset('fonts/MaterialIcons-Regular.ttf')}}) format('truetype');
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px; /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+
+            /* Support for IE. */
+            font-feature-settings: 'liga';
         }
 
         body {
@@ -35,6 +70,11 @@
 
         .cl-2 {
             color: rgba(0, 0, 0, 0.65);
+        }
+
+        .text{
+            line-height: 1;
+            letter-spacing: 1px;
         }
 
         .text-decor {
@@ -170,31 +210,34 @@
         }
 
         .div-item-text {
-            width: 155px;
-            margin-bottom: 8px;
+            width: 75%;
+            margin-bottom: 8%;
         }
+
         .btn-item-add {
-            width: 48px;
+            width: 100%;
             height: 24px;
+            max-height: 100%;
             border-radius: 2px;
             border: solid 1px #00ec47;
         }
 
         .div-btn-add {
-            padding-right: 9px;
+            padding-right: 4%;
         }
 
         .text-item-price {
-            padding-top: 7px;
+            padding-top: 3%;
         }
 
         .div-img {
-            width: 176px;
-            height: 128px;
+            width: 87%;
+            height: 100%;
+            max-height: 100%;
             box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
             border: solid 8px #ffffff;
-            padding: 5px;
-            margin-bottom: 14px;
+            padding: 2.5%;
+            margin-bottom: 7%;
         }
 
         .txt-item-name {
@@ -202,14 +245,12 @@
         }
 
         .txt-item-desc {
-            margin-top: 8px;
+            margin-top: 4%;
             font-size: 12px;
             line-height: 1.33;
             letter-spacing: 1px;
             color: rgba(46, 46, 46, 0.5);
         }
-
-
 
         #shop .col-lg-2, .col-lg-10, .col-lg-8 {
             padding-left: 0;
@@ -222,37 +263,12 @@
         /**
         *Code for checkboxes
         */
-        .switch_box{
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            max-width: 200px;
-            min-width: 200px;
-            height: 200px;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-flex: 1;
-            -ms-flex: 1;
-            flex: 1;
-        }
-
-        /* Switch 1 Specific Styles Start */
-
-        .box_1{
-            background: #eee;
-        }
-
-        input[type="checkbox"].switch_1{
-            font-size: 30px;
+        input[type="checkbox"].switch_1 {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            width: 3.5em;
-            height: 1.5em;
+            width: 1.4em;
+            height: 0.75em;
             background: #ddd;
             border-radius: 3em;
             position: relative;
@@ -262,19 +278,19 @@
             transition: all .2s ease-in-out;
         }
 
-        input[type="checkbox"].switch_1:checked{
-            background: #0ebeff;
+        input[type="checkbox"].switch_1:checked {
+            background: rgba(0, 199, 59, 0.6);
         }
 
-        input[type="checkbox"].switch_1:after{
+        input[type="checkbox"].switch_1:after {
             position: absolute;
             content: "";
-            width: 1.5em;
-            height: 1.5em;
+            width: 0.75em;
+            height: 0.75em;
             border-radius: 50%;
             background: #fff;
-            -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
-            box-shadow: 0 0 .25em rgba(0,0,0,.3);
+            -webkit-box-shadow: 0 0 .25em rgba(0, 0, 0, .3);
+            box-shadow: 0 0 .25em rgba(0, 0, 0, .3);
             -webkit-transform: scale(.7);
             transform: scale(.7);
             left: 0;
@@ -282,17 +298,73 @@
             transition: all .2s ease-in-out;
         }
 
-        input[type="checkbox"].switch_1:checked:after{
-            left: calc(100% - 1.5em);
+        input[type="checkbox"].switch_1:checked:after {
+            left: calc(100% - 0.75em);
         }
 
         /* Switch 1 Specific Style End */
 
+        .col-filters {
+            padding-top: 4%;
+        }
+
+        .filters{
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .text-filters{
+            cursor: pointer;
+        }
+
+        .inpt-price {
+            width: 40px;
+            background-image: none;
+            background-position: 0;
+            padding: 2px;
+
+        }
+
+        .btn-filters {
+            width: 80px;
+            height: 32px;
+            border-radius: 2px;
+            border: solid 1px #00ec47;
+            color: #ffffff;
+            margin-top: 18.5%;
+        }
+
+        .btn-next {
+            width: 32px;
+            height: 32px;
+            border: solid 1.5px #00c73b;
+            border-radius: 100%;
+            color: #00c73b;
+            text-align: center;
+            padding-top: 0.35%;
+            cursor: pointer;
+            margin-bottom: 10%;
+        }
+
+        .btn-next:hover {
+            background-color: #00c73b;
+            color: white;
+        }
+
+        .text-about {
+            font-size: 12px;
+            line-height: 1.33;
+            letter-spacing: 1px;
+            color: rgba(46, 46, 46, 0.5);
+        }
 
     </style>
 </head>
 <body>
 <div class="container" id="shop">
+    <!--
+    *Code for log-buttons
+    -->
     <div class="row row-log">
         <div class="col-lg-9"></div>
         <div class="col-lg-3">
@@ -303,8 +375,16 @@
 
         </div>
     </div>
+    <!--
+    *End of log-buttons
+    -->
+
+    <!--
+    *Code for nav-bar
+    -->
     <div class="row">
         <div class="col-lg-2"><img src="{{asset('images/logo.png')}}" alt="logo" class="img-logo"></div>
+        <!-- Nav bar -->
         <div class="col-lg-4 nav-bottom">
             <div class="nav">
                 <a href="" class="cl-2 nav-btn text-decor">Меню</a>
@@ -312,18 +392,28 @@
                 <a href="" class="cl-2 nav-btn text-decor">О нас</a>
             </div>
         </div>
-
+        <!-- Search + basket -->
         <div class="col-lg-4 "><input type="text" class="nav-search fl-right" placeholder="Поиск"></div>
         <a class="col-lg-2 cl-1 nav-basket" href="">
-            <div class="fl-right">
+            <div class="fl-right" style="margin-right: -18.5%">
                 <div class="col-sm-1"><i class="material-icons" style="font-size: 20px">shopping_basket</i></div>
                 <div class="col-sm-8"><b class="text-decor">КОРЗИНА</b></div>
             </div>
         </a>
     </div>
+    <!--
+    *End of nav-bar
+    -->
+
+    <!--
+    *Code for products + filters + sorting
+    -->
     <div class="row">
-        <div class="col-lg-10 colour-3">
+        <!-- Products + sorting-->
+        <div class="col-lg-9">
+            <!-- Categories + sorting-->
             <div class="row row-slct">
+                <!-- Categories select -->
                 <div class="col-lg-8 colour-2">
                     <select name="" id="" class="category-slct form-control cl-1 text-decor-strong">
                         <option value="">ВСЕ ТОВАРЫ</option>
@@ -331,6 +421,7 @@
                         <option value="">Регланы</option>
                     </select>
                 </div>
+                <!-- Sorting block -->
                 <div class="col-lg-4 colour-1">
                     <select name="" id="" class="slct-sort form-control cl-1 fl-right">
                         <option value="">Сортировать по:</option>
@@ -339,6 +430,7 @@
                     </select>
                 </div>
             </div>
+            <!-- Products -->
             <div class="row row-item">
                 <div class="col-md-3">
                     <div class="div-item">
@@ -472,13 +564,183 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2 colour-2">
-            <text>КЛАССЫ ПЫШНОСТИ</text>
-            <div class="switch_box box_1">
-                <input type="checkbox" class="switch_1">
+        <div class="col-lg-1"></div>
+        <!-- Filters-->
+        <div class="col-lg-2 col-filters cl-2">
+
+            <div class="col-filters">
+                <text class="cl-1"><b>КЛАССЫ ПЫШНОСТИ</b></text>
+                <div class="row filters">
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">Стандарт</div>
+                    <div class="col-sm-2 "><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">Премиум</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">Супер-премиум</div>
+                </div>
+            </div>
+
+            <div class="col-filters">
+                <text class="cl-1"><b>РАЗМЕРЫ</b></text>
+                <div class="row filters">
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">S</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">P</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">L</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">XL</div>
+                </div>
+            </div>
+
+            <div class="col-filters">
+                <text class="cl-1"><b>БРЕНДЫ</b></text>
+                <div class="row filters">
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">Magic Petti</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">Feikebella</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1"></div>
+                    <div class="col-sm-10 text-filters">LolliPop</div>
+                </div>
+            </div>
+
+            <div class="col-filters">
+                <text class="cl-1"><b>ЦЕНА</b></text>
+                <div class="row filters" style="padding-left: 8.5%">
+                    от <input type="text" class="nav-search inpt-price">&nbsp;
+                    до <input type="text" class="nav-search inpt-price">
+                </div>
+            </div>
+
+            <div class="col-filters">
+                <text class="cl-1"><b>ЦВЕТА</b></text>
+                <div class="row filters"  id="checkboxes">
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1" id="chbox-red"
+                                                 v-on:change="setColour('chbox-red')"
+                                                 style="background-color: rgba(211, 22, 90, 0.26)"></div>
+                    <div class="col-sm-10 text-filters">Розовый</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1" id="chbox-blue"
+                                                 v-on:change="setColour('chbox-blue')"
+                                                 style="background-color: rgba(38,171,211,0.25)"></div>
+                    <div class="col-sm-10 text-filters">Синий</div>
+                    <div class="col-sm-2"><input type="checkbox" class="switch_1" id="chbox-white"
+                                                 v-on:change="setColour('chbox-white')"
+                                                 style="background-color: rgba(75,75,75,0.25)"></div>
+                    <div class="col-sm-10 text-filters">Белый</div>
+                </div>
+            </div>
+            <button class="btn-filters bg-cl-1 fl-right">Искать</button>
+        </div>
+    </div>
+    <!--
+    *End of products + filters + sorting
+    -->
+
+    <!--
+    *Code for button "next items"
+    -->
+    <div class="row">
+        <div class="btn-next">
+            <i class="material-icons">&#xE5DB;</i>
+        </div>
+    </div>
+    <!--
+    *End of button "next items"
+    -->
+
+    <!--
+    *Code for about block -> footer
+    -->
+    <div class="row">
+        <div class="col-lg-11">
+            <!-- Contacts-->
+            <div class="col-md-3" style="padding-left: 0">
+                <div class="col-sm-1" style="padding-left: 0"><i class="material-icons cl-1" style="font-size: 20px;">
+                        &#xE0CD;</i></div>
+                <div class="col-sm-8"><b class="cl-1 text-decor-strong ">КОНТАКТЫ</b></div>
+                <div class="text-about">
+                    <br>
+                    <br>
+                    <br>
+                    <p>+38 063 365 88 94</p>
+                    <p>+38 066 107 86 26</p>
+                    <p>+38 096 466 82 21</p>
+                    <p>website.moyadonya@gmail.com</p>
+                </div>
+            </div>
+            <!-- Shipping-->
+            <div class="col-md-4">
+                <div class="col-sm-1" style="padding-left: 0"><i class="material-icons cl-1" style="font-size: 20px">
+                        &#xE558;</i></div>
+                <div class="col-sm-8"><b class="cl-1 text-decor-strong ">ДОСТАВКА</b></div>
+                <div class="text-about">
+                    <br>
+                    <br>
+                    <br>
+                    <p>Мы доставляем пышные юбки по всей Украине «Новой Почтой» в течении 1-2 дней.</p>
+                    <p>Если Вы находитесь в Одессе, возможен самовывоз товара.</p>
+                </div>
+            </div>
+            <!-- Schedule-->
+            <div class="col-md-5">
+                <div class="col-sm-1" style="padding-left: 0"><i class="material-icons cl-1" style="font-size: 20px">
+                        &#xE192;</i></div>
+                <div class="col-sm-8"><b class="cl-1 text-decor-strong ">ГРАФИК РАБОТЫ</b></div>
+                <div class="text-about">
+                    <br>
+                    <br>
+                    <br>
+                    <p>Мы отправляем товары каждый день с понедельника по субботу «Новой Почтой» в 14:00</p>
+                    <p>Если вы заказали товар до 14:00 и хотите оплатить его при получении, мы отправим вам посылку в
+                        этот же день.</p>
+                    <p>Если вы заказали товар до 14:00 и оплатили его, мы отправим вам посылку в этот же день.</p>
+                    <p>Если вы заказали и оплатили товар после 14:00, мы отправим вам посылку на следующий день.</p>
+                </div>
             </div>
         </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!--
+    *End of about block
+    -->
+
+    <div class="row text-about" style="margin-bottom: 2%;">
+        © 2017 «Моя Доня» Все права защищены
     </div>
 </div>
 </body>
+<script src="{{ asset('js/vue.js') }}"></script>
+
+<script>
+    new Vue({
+        el: '#checkboxes',
+        data: {
+            colors: {
+                'chbox-red': {1: 'rgba(211, 22, 90, 0.50)', 0: 'rgba(211, 22, 90, 0.25)'},
+                'chbox-blue': {1: 'rgba(38,171,211,0.50)', 0: 'rgba(38,171,211,0.25)'},
+                'chbox-white': {1: 'rgba(255,255,255,0.5)', 0: 'rgba(75,75,75,0.25)'}
+            }
+        },
+        methods: {
+
+            setColour: function (chId) {
+                if (document.getElementById(chId).checked) {
+                    document.getElementById(chId).style.background = this.colors[chId][1];
+                }
+                else {
+                    document.getElementById(chId).style.background = this.colors[chId][0];
+                }
+
+            }
+
+        }
+    })
+</script>
+<script>
+    
+document.getElementsByClassName('text-filters')
+</script>
+
 </html>
