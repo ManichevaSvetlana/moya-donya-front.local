@@ -358,9 +358,125 @@
             color: rgba(46, 46, 46, 0.5);
         }
 
+
+
+        .menu {
+            text-align: right;
+        }
+
+        .menu__links-item {
+            display: inline-block;
+            color: #333333;
+            font-family: Arial;
+            font-size: 14px;
+            line-height: 30px;
+            padding: 0 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .menu__links-item:hover {
+            text-decoration: underline;
+        }
+        .menu__icon {
+            display: none;
+            width: 45px;
+            height: 35px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .menu__icon span {
+            display: block;
+            position: absolute;
+            height: 9px;
+            width: 100%;
+            background: #333333;
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .menu__icon span:nth-child(1) {
+            top: 0px;
+        }
+
+        .menu__icon span:nth-child(2), .menu__icon span:nth-child(3) {
+            top: 13px;
+        }
+
+        .menu__icon span:nth-child(4) {
+            top: 26px;
+        }
+
+        @media screen and (max-width: 999px) {
+            .menu__icon{
+                display: inline-block;
+            }
+
+            .menu__links {
+                position: fixed;
+                display: block;
+                top: 0;
+                right: 0;
+                left: 0;
+                margin-top: 52px;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                overflow: auto;
+                opacity: 0;
+            }
+
+            .menu__links-item {
+                display: block;
+                padding: 10px 0;
+                text-align: center;
+                color: #ffffff;
+            }
+        }
+        .menu.menu_state_open .menu__icon span:nth-child(1) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .menu.menu_state_open .menu__icon span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .menu.menu_state_open .menu__icon span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .menu.menu_state_open .menu__icon span:nth-child(4) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .menu.menu_state_open .menu__links {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+
+<div class="menu">
+    <div class="menu__links">
+        <a class="menu__links-item" href="/">Item 1</a>
+        <a class="menu__links-item" href="/">Item 2</a>
+    </div>
+</div>
+<div class="menu__icon">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
 <div class="container" id="shop">
     <!--
     *Code for log-buttons
@@ -741,6 +857,11 @@
 <script>
     
 document.getElementsByClassName('text-filters')
+</script>
+<script>
+
+
+
 </script>
 
 </html>
